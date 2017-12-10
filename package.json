@@ -3,15 +3,36 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "hot-start": "supervisor --harmony --debug ./bin/www"
   },
   "dependencies": {
+    "async": "^2.6.0",
+    "blueimp-md5": "^2.10.0",
     "body-parser": "~1.18.2",
+    "colors": "^1.1.2",
+    "config-lite": "^2.1.0",
+    "connect-mysql": "^2.1.7",
     "cookie-parser": "~1.4.3",
+    "crypto-js": "^3.1.9-1",
     "debug": "~2.6.9",
+    "ejs": "^2.5.7",
     "express": "~4.15.5",
-    "jade": "~1.11.0",
+    "express-session": "^1.15.6",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.3",
+    "moment-timezone": "^0.5.14",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "mysql2": "^1.5.1",
+    "node-uuid": "^1.4.8",
+    "sequelize": "^4.27.0",
+    "serve-favicon": "~2.4.5",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
