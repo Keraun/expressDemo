@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "pm2-start": "NODE_ENV=production pm2 start app.js --name 'myblog'",
+    "pm2-start": "NODE_ENV=production pm2 start ./bin/www --name 'myblog'",
     "hot-start": "supervisor --harmony --inspect ./bin/www"
   },
   "dependencies": {
@@ -40,6 +40,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.0",
-    "gulp-watch": "^5.0.0"
+    "gulp-watch": "^5.0.0",
+    "node-mysql": "^0.4.2"
   }
 }

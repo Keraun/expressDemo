@@ -61,7 +61,7 @@
 
                 var imgName = item.image;
                 if(!imgName) {
-                    imgName = '/image/item-book' + (idx % 2 ) +'.webp';
+                    imgName = '/image/item-book' + (idx % 2 ) +'.jpg';
                 }
                 var itemImg = 'background-image:url(\'' + imgName + '\');';
                 html += [

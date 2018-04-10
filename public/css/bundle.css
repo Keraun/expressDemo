@@ -508,7 +508,7 @@ html {
   width: 100%;
   height: 94px;
   padding-top: 30px;
-  background: url('/image/bannerBg.webp') no-repeat;
+  background: url('/image/bannerBg.jpg') no-repeat;
   z-index: 10;
 }
 .site-description-container {
@@ -676,7 +676,7 @@ html {
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
-  background-image: url('/image/bannerBg.webp');
+  background-image: url('/image/bannerBg.jpg');
 }
 .post-item .post-item-info {
   display: inline-block;
