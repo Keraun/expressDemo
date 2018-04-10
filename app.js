@@ -13,7 +13,7 @@ var mysqlStore = require('connect-mysql')(session);
 
 require('./lib/database').initDb(); //加载Sequelize
 
-//require('./lib/database').createTables({ force: true}); //删除并重建表 { force: true, match: /_test$/ } //匹配对应的model
+require('./lib/database').createTables({ force: false}); //删除并重建表 { force: true, match: /_test$/ } //匹配对应的model
 
 var app = express();
 
@@ -56,7 +56,7 @@ app.use(session({
     })
 }));
 
-app.use(express.static(path.join(__dirname, 'webapp'))); //先去匹配静态资源
+app.use(express.static(path.join(__dirname, 'public'))); //先去匹配静态资源
 
 //路由
 routes(app);

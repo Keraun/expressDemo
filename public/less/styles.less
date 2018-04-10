@@ -1,0 +1,347 @@
+body {
+    background: #fff;
+}
+
+
+
+.site-root {
+    min-height: 100%;
+    position: relative;
+}
+
+
+.site-header {}
+
+
+
+.site-nav {
+    margin: 0 auto;
+}
+
+.site-nav-container {
+    text-align: center;
+}
+
+.site-nav-item {
+    /*    height: 100%;*/
+    width: 152px;
+    height: 47px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: visible;
+    display: inline-block;
+    cursor: pointer;
+    font: normal normal normal 12px/1.4em futura-lt-w01-book, sans-serif;
+}
+
+.site-nav-link {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.button-label {
+    display: inline-block;
+    padding: 0 10px;
+    color: #CCCCCC;
+    transition: color 0.4s ease 0s;
+}
+
+.button-label__selected {
+    color: #605E5E;
+    transition: color 0.4s ease 0s;
+}
+
+.site-nav-label {
+    text-align: center;
+    line-height: 47px;
+    height: 100%;
+}
+
+.banner-image {
+    width: 100%;
+    min-height: 300px;
+}
+
+.site-banner {
+    position: relative;
+}
+
+.site-description {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 94px;
+    padding-top: 30px;
+    background: url('/image/bannerBg.webp') no-repeat;
+    transform: translate(0, 0);
+}
+
+.site-description-container {
+    text-align: center;
+}
+
+.site-description__BgColor {}
+
+
+
+
+.site-footer {
+    background-color: rgba(0, 0, 0, 1);
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    color: #fff;
+    margin-top: 94px;
+}
+
+
+.footer-descript {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer-detail {
+    overflow: hidden;
+    border-top: 2px solid rgba(47, 46, 46, 1);
+}
+
+.footer-detail-item {
+    float: left;
+    border-right: 2px solid rgba(47, 46, 46, 1);
+    padding-top: 20px;
+    height: 120px;
+    margin-bottom: 60px;
+    width: 49%;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.footer-detail-item:last-child {
+    border-right: 0;
+}
+
+
+.social-links {
+    font-size: 0;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    margin-right: 18px;
+}
+
+.about-container {
+    min-height: 500px;
+    padding-top: 200px;
+}
+
+.avator-box {
+    margin: 0 60px 0 30px;
+    font-size: 0;
+    float: left;
+    border: 1px solid #eee;
+    /*border-radius: 50%;*/
+    overflow: hidden;
+}
+
+.avator-img {
+    outline: transparent solid 1px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+
+.avator-info-box {
+    /*float:left;*/
+}
+
+
+.post-container,
+.blog-container {
+    padding-top: 110px;
+}
+
+.post-container {
+
+    .post-wrap {
+        font: normal normal normal 14px/1.4em futura-lt-w01-light, sans-serif;
+        line-height: normal;
+        border: 1px solid rgba(204, 204, 204, 0.75);
+        color: rgba(47, 46, 46, 1);
+        width: 940px;
+        margin: 20px auto;
+        padding: 62px 0 54px;
+    }
+    .post-content {
+        width: 740px;
+        margin: 0 auto;
+    }
+    .post-title {
+        width: 100%;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.75);
+    }
+    .post-main {
+        margin-top: 30px;
+    }
+}
+
+.post-nav {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.post-nav-item {
+    height: 80px;
+    white-space: nowrap;
+    font: normal normal normal 14px/1.4em futura-lt-w01-light, sans-serif;
+    line-height: normal;
+    color: #605E5E;
+    display: inline-block;
+    line-height: 80px;
+    margin-right: 50px;
+
+    a {
+        color: #605E5E;
+    }
+}
+
+
+
+.post-title {
+    .post-title__text {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+.blog-container {
+    .post-list-wrap {
+        width: 940px;
+        margin: 0 20px;
+    }
+}
+
+.blog-container .post-list {
+    min-height: 150px;
+}
+
+.post-list {
+    .post-item {
+        font-size: 0;
+        line-height: normal;
+        max-height: 372px;
+        overflow: hidden;
+        border: 1px solid rgba(204, 204, 204, 0.75);
+        color: rgba(47, 46, 46, .9);
+        margin-bottom: 32px;
+    }
+}
+
+.post-item {
+    .post-title__text {
+        font-size: 22px;
+        line-height: normal;
+        color: rgba(47, 46, 46, 1);
+    }
+    .post-item_text {
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: serif, sans-serif;
+    }
+
+    .post-item-time {
+        padding-bottom: 10px;
+    }
+
+    .post-item-title:hover {
+        color: #CCCCCC;
+    }
+
+    .post-item-description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        padding-top: 20px;
+    }
+
+    .post-item-image {
+        display: block;
+        float: left;
+        width: 468px;
+        height: 360px;
+        background-size: cover;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-image: url('/image/bannerBg.webp');
+    }
+
+    .post-item-info {
+        display: inline-block;
+        width: 470px;
+        padding: 40px 48px 37px;
+        font: normal normal normal 14px/1.4em futura-lt-w01-light, sans-serif;
+        box-sizing: border-box;
+    }
+}
+
+.blog-button {
+    border-color: rgba(47, 46, 46, 1);
+    color: rgba(47, 46, 46, 1);
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    height: 36px;
+    margin: 0;
+    padding: 0 30px;
+    border-radius: 0;
+    line-height: 36px;
+    cursor: pointer;
+    vertical-align: middle;
+    white-space: nowrap;
+    transition: all .25s ease;
+    text-align: center;
+    letter-spacing:0.45em;
+    &:hover {
+        color: #fff;
+        background-color: rgba(47, 46, 46, 1);
+    }
+}
+
+.button-fill {
+    background-color: rgba(47, 46, 46, 1);
+    border: solid transparent 1px;
+    cursor: pointer !important;
+    color: #fff;
+    border-color: rgba(47, 46, 46, 1);
+    &:hover {
+        color: rgba(47, 46, 46, 1);
+        background-color: #fff;
+    }
+}
+
+.button-big {
+    width: 350px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.view-more-post {
+    text-align: center;
+    padding-top: 30px;
+}

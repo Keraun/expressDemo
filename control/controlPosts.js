@@ -13,28 +13,36 @@ let Posts = new Base({
 
 Posts.createPost = (params, callback) => {
     Posts.create(params, (err, data) => {
-        if(err) return callback(err);
+        if (err) return callback(err);
         callback(null, util.omit(data, ['content']));
     });
 }
 
 Posts.getById = (id, callback) => {
     Posts.findById(id, (err, data) => {
-        if(err) return callback(err);
+        if (err) return callback(err);
+        data.createdAt = util.formatFullTimeZone(data.createdAt);
+        data.updatedAt = util.formatFullTimeZone(data.updatedAt);
         return callback(null, data);
     });
 }
 
-Posts.deleteById = (id, callback) => {
-    Posts.destroy({postId: id}, (err, data) => {
-        if(err) return callback(err);
+Posts.deleteById = (data, callback, where = {}) => {
+    Posts.update(data, (err, data) => {
+        if (err) return callback(err);
         return callback(null, data);
-    });
+    }, where);
 }
 
-Posts.getList = (where, callback ,opts) => {
+Posts.getList = (where, callback, opts) => {
     Posts.findAndCountAll(where, (err, data) => {
-        if(err) return callback(err);
+        if (err) return callback(err);
+        data.data.forEach(function(item) {
+            item.content = (item.content || '').slice(0, 600);
+            item.markdown = (item.markdown || '').slice(0, 600);
+            item.createdAt = util.formatFullTimeZone(item.createdAt);
+            item.updatedAt = util.formatFullTimeZone(item.updatedAt);
+        });
         return callback(null, data);
     }, opts);
 }

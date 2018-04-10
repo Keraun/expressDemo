@@ -56,10 +56,7 @@ User.login = (params, callback) => {
         ],
         password: password
     }, (err, user) => {
-        if(err) return callback(err);
-        if(user && user.qrcode) {
-            user.qrcode = util.catchJsonParse(user.qrcode, {});
-        }
+        if(err || !user) return callback(err || '用户不存在');
         callback(null, User.omitForLogin(user));
     });
 }

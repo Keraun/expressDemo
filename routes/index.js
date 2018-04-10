@@ -1,25 +1,21 @@
 module.exports = function(app) {
 
     app.get('/', function(req, res) {
-        res.redirect('/posts');
+        res.render('index.ejs', {
+            pageModel: 'home'
+        });
     });
-
+    app.get('/about', function(req, res) {
+        res.render('about.ejs', {
+            pageModel: 'about'
+        });
+    });
+    app.get('/backend', function(req, res) {
+        res.render('backend.ejs', {
+            pageModel: 'backend'
+        });
+    });
     app.use('/user', require('./route/user'));
+    app.use('/blog', require('./route/blog'));
     app.use('/posts', require('./route/posts'));
-
-    //注册
-    //登录
-    //登出
-    //查看文章
-    //发表文章
-    //修改文章
-    //删除文章
-    //留言
-
-    // 404 page
-    // app.use(function (req, res) {
-    //   if (!res.headersSent) {
-    //     res.status(404).render('404');
-    //   }
-    // });
 };

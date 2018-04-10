@@ -1,0 +1,50 @@
+<%- include('layout') %>
+    <%- include('header') %>
+        <%- include('banner') %>
+            <div class="backend-container common-wrap" style="margin-top: 150px;">
+                <div class="clearfix">
+                    <form style="float:left" id="registerForm">
+                        <div>
+                            <label>用户名</label>
+                            <input placeholder="用户名" type="text" name="name">
+                        </div>
+                        <div>
+                            <label>密码</label>
+                            <input placeholder="密码" type="password" name="password">
+                        </div>
+                        <div>
+                            <label>重复密码</label>
+                            <input placeholder="重复密码" type="password" name="repassword">
+                        </div>
+                        <div>
+                            <label>性别</label>
+                            <select name="gender">
+                                <option value="m">男</option>
+                                <option value="f">女</option>
+                                <option value="x">保密</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>个人简介</label>
+                            <textarea name="bio" rows="5"></textarea>
+                        </div>
+                        <input id="btn-register" type="button" value="注册">
+                    </form>
+                    <form style="float:left;margin-left:200px;" id="loginForm">
+                        <div>
+                            <label>用户名</label>
+                            <input placeholder="用户名" type="text" name="name">
+                        </div>
+                        <div>
+                            <label>密码</label>
+                            <input placeholder="密码" type="password" name="password">
+                        </div>
+                        <input id="btn-login" type="button" value="登录">
+                    </form>
+                </div>
+            </div>
+            </div>
+            <%- include('footer') %>
+                    <script src="/js/backend.js" type="text/javascript" charset="utf-8"></script>
+
+                <%- include('layout-end') %>

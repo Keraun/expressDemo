@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css" media="screen">
+    .wrap {
+        width: 980px;
+        margin: 0 auto;
+    }
+
+    .mt30 {
+        margin-top: 30px;
+    }
+
+    .clearfix {
+        *+height: 1%;
+    }
+
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+
+    table {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        border-left: 1px solid #eee;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+    }
+    .fs-12 {
+        font-size: 12px;
+    }
+
+    .J_btn-delete {
+        color: red;
+    }
+    .btn-opt {
+        padding: 3px;
+    }
+    .post-content {
+        overflow: hidden;
+        white-space:nowrap;
+        width: 200px;
+        text-overflow:ellipsis;
+    }
+    p {
+        margin:0;
+    }
+    .al-c {
+        text-align:center
+    }
+    .hide {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap mt30">
+        <div class="clearfix">
+            <a href="/posts/createPost" target="_blank" style="float:left">添加文章</a>
+            <a id="btn-logout" href="javascript:;" style="float:right">注销</a>
+        </div>
+        <table id="table">
+            <thead>
+                <td style="width:10px;">postId</td>
+                <td style="width:250px">标题</td>
+                <td style="width:200px">内容</td>
+                <td style="width:50px">状态</td>
+                <td style="width:100px">创建时间</td>
+                <td style="width:100px">更新时间</td>
+                <td style="width:180px">操作</td>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://g.alicdn.com/sj/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/postManage.js" type="text/javascript"></script>
+</body>
+
+</html>

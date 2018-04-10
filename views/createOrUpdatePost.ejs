@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/editReset.css" />
+    <link rel="stylesheet" href="/css/editormd.css" />
+    <style type="text/css" media="screen">
+    .site-wrap {
+        width: 980px;
+        margin: 0 auto;
+    }
+
+    .title-input {
+        height: 60px;
+        width: 500px;
+        margin: 30px 0;
+        display: inline-block;
+    }
+
+    .date-input {
+        height: 60px;
+        width: 150px;
+        margin: 30px 0;
+        display: inline-block;
+    }
+
+    .btn-save {
+        display: inline-block;
+        height: 60px;
+        background: green;
+        width: 80px;
+        line-height: 60px;
+        color: #fff;
+        margin-left: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="site-wrap">
+        <input type="text" class="title-input " name="title" value="" placeholder="文章标题" />
+        <input type="date" class="date-input " name="title" value="" placeholder="时间" />
+        <a href="javascript:;" class="btn-save" data-type="1">发布</a>
+        <a href="javascript:;" class="btn-save" data-type="2">草稿</a>
+    </div>
+    <div id="layout">
+        <div id="test-editormd">
+            <textarea style="display:none;"></textarea>
+        </div>
+    </div>
+    </script>
+    <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/editormd.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    var testEditor;
+
+    $(function() {
+
+        var domain = window.ajaxDomain;
+
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        var postId = GetRequest()['postId'];
+
+        var oPage = {
+            init: function() {
+                this.event();
+                this.show();
+            },
+            event: function() {
+                var flag = false;
+                var self = this;
+                $('.btn-save').on('click', function() {
+                    if (flag) {
+                        alert('保存中');
+                        return
+                    }
+                    flag = true;
+                    var status = $(this).data('type') || 2; //默认保存为草稿
+                    setTimeout(function() {
+                        var params = self.getPostParams(status);
+                        if (!params.title) {
+                            alert('标题不能为空')
+                            return
+                        }
+                        var url = '/posts/createPost';
+                        if(postId) {
+                            url = '/posts/updatePostById';
+                            params.postId = postId;
+                        }
+                        $.ajax({
+                            url: domain + url,
+                            type: 'POST',
+                            data: params
+                        }).done(function(res) {
+                            flag = false;
+                            alert(res.message);
+                            window.close();
+                            console.log('res', res);
+                        }).fail(function() {
+                            flag = false;
+                        });
+                    }, 500)
+                });
+            },
+            show: function() {
+                var self = this;
+                if (postId) {
+                    this.getPostById(postId, function(data) {
+                        self.initEditor(data.markdown);
+                        $('.title-input').val(data.title);
+                        $('.date-input').val(data.time || data.createdAt.split(' ')[0]);
+                    });
+                } else {
+                    self.initEditor();
+                }
+            },
+            getPostById: function(postId, cb) {
+                $.ajax({
+                    url: domain + '/posts/getPostById',
+                    type: 'get',
+                    data: { postId: postId }
+                }).done(function(res) {
+                    if (res.result == 100) {
+                        cb && cb(res.data)
+                    }
+                }).fail(function() {
+                    self.initEditor();
+                });
+            },
+            initEditor: function(md) {
+                var config = {
+                    width: "90%",
+                    height: 740,
+                    path: '/lib/',
+                    //markdown: md,
+                    codeFold: true,
+                    saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
+                    searchReplace: true,
+                    htmlDecode: "style,script,iframe|on*", // 开启 HTML 标签解析，为了安全性，默认不开启
+                    emoji: true,
+                    taskList: true,
+                    tocm: true, // Using [TOCM]
+                    tex: true, // 开启科学公式TeX语言支持，默认关闭
+                    flowChart: false, // 开启流程图支持，默认关闭
+                    sequenceDiagram: true, // 开启时序/序列图支持，默认关闭,
+                    // onchange: function(e) {
+                    //     console.log(this.getHTML());
+                    //     console.log(this.getMarkdown());
+                    // }
+                };
+                if (md) {
+                    config.markdown = md;
+                }
+                testEditor = editormd("test-editormd", config);
+            },
+            getPostParams: function(status) {
+                var params = {
+                    title: $('.title-input').val(),
+                    author: '',
+                    time: $('.date-input').val(),
+                    content: testEditor.getHTML(),
+                    markdown: testEditor.getMarkdown(),
+                    status: status,
+                }
+                return params
+            }
+        }
+        oPage.init();
+    });
+    </script>
+</body>
+
+</html>

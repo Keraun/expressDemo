@@ -1,4 +1,14 @@
 <%- include('layout') %>
-<h1><%= title %></h1>
-<P>Welcome to <%= title %></P>
-<%- include('footer') %>
+    <%- include('header') %>
+        <%- include('banner') %>
+            <div class="blog-container common-wrap pt-32 clearfix">
+                <div class="post-list-wrap">
+                    <div class="post-list" id="post-pre-list">
+                    </div>
+                    <div class="view-more-post"></div>
+
+                </div>
+            </div>
+            <%- include('footer') %>
+                <script src="/js/home.js" type="text/javascript" charset="utf-8"></script>
+                <%- include('layout-end') %>
