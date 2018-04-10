@@ -5,12 +5,12 @@ var concat = require('gulp-concat'); //合并文件
 var clean   = require('gulp-clean');
 var watch = require('gulp-watch');
 
-gulp.task("clean", function(){
-    return gulp.src('./public/css/')
-        .pipe(clean());
-});
+// gulp.task("clean", function(){
+//     return gulp.src('./public/css/')
+//         .pipe(clean());
+// });
 
-gulp.task('default', ['clean'], function() {
+gulp.task('default', function() {
     return gulp.src([
             './public/less/bundle.less',
             './public/less/reset.less',

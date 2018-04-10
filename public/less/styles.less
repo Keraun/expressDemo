@@ -1,5 +1,8 @@
-body {
+html {
     background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -13,7 +16,6 @@ body {
 .site-header {}
 
 
-
 .site-nav {
     margin: 0 auto;
 }
@@ -24,14 +26,15 @@ body {
 
 .site-nav-item {
     /*    height: 100%;*/
+    font: normal normal normal 12px/1.4em futura-lt-w01-book, sans-serif;
     width: 152px;
-    height: 47px;
     position: relative;
     box-sizing: border-box;
     overflow: visible;
+    height: 47px;
+    line-height: 47px;
     display: inline-block;
     cursor: pointer;
-    font: normal normal normal 12px/1.4em futura-lt-w01-book, sans-serif;
 }
 
 .site-nav-link {
@@ -42,12 +45,14 @@ body {
         .button-label {
             color: #605E5E;
         }
-    };
+    }
+    ;
 }
 
-.banner-title  {
+.banner-title {
     opacity: 0;
 }
+
 .button-label {
     display: inline-block;
     padding: 0 10px;
@@ -61,14 +66,13 @@ body {
 
 .site-nav-label {
     text-align: center;
-    line-height: 47px;
     height: 100%;
 }
 
 .banner-image {
     width: 100%;
     min-height: 300px;
-    transform: translate(0,0);
+    transform: translate(0, 0);
 }
 
 .site-banner {
@@ -208,8 +212,6 @@ body {
 }
 
 .post-nav {
-    width: 940px;
-    margin: 0 auto;
 }
 
 .post-nav-item {
@@ -248,7 +250,7 @@ body {
 }
 
 .post-list {
-    transform: translate(0,0);
+    transform: translate(0, 0);
     .post-item {
         font-size: 0;
         line-height: normal;
@@ -270,6 +272,9 @@ body {
         font-size: 14px;
         line-height: 1.5;
         font-family: futura-lt-w01-light, serif, sans-serif;
+        word-wrap: break-word;
+        text-align: start;
+        pointer-events: none;
     }
 
     .post-item-time {
@@ -329,7 +334,7 @@ body {
     white-space: nowrap;
     transition: all .25s ease;
     text-align: center;
-    letter-spacing:0.45em;
+    letter-spacing: 0.45em;
     &:hover {
         color: #fff;
         background-color: rgba(47, 46, 46, 1);

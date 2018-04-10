@@ -11,14 +11,15 @@
         margin: 0 auto;
     }
 
-    .title-input, .image-input  {
+    .title-input, .image-input, .description-input {
         height: 60px;
         width: 500px;
-        margin: 30px 0;
+        margin: 15px 0;
         display: inline-block;
     }
     .image-input  {
-        width: 100%;
+        width: 30%;
+        display: inline-block;
     }
     .date-input {
         height: 60px;
@@ -45,7 +46,8 @@
         <input type="date" class="date-input " name="title" value="" placeholder="时间" />
         <a href="javascript:;" class="btn-save" data-type="1">发布</a>
         <a href="javascript:;" class="btn-save" data-type="2">草稿</a>
-        <input type="text" class="image-input"  name="title" value="" placeholder="图片" />
+        <input type="text" class="image-input"  name="image" value="" placeholder="图片" />
+        <input type="text" class="description-input"  name="description" value="" placeholder="描述" />
     </div>
     <div id="layout">
         <div id="test-editormd">
@@ -54,7 +56,7 @@
     </div>
     </script>
     <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/base.js?random=?random=<%= +new Date() %>" type="text/javascript" charset="utf-8"></script>
     <script src="/js/editormd.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     var testEditor;
@@ -126,6 +128,7 @@
                         self.initEditor(data.markdown);
                         $('.title-input').val(data.title);
                         $('.image-input').val(data.image);
+                        $('.description-input').val(data.description);
                         $('.date-input').val(data.time || data.createdAt.split(' ')[0]);
                     });
                 } else {
@@ -172,11 +175,16 @@
                 testEditor = editormd("test-editormd", config);
             },
             getPostParams: function(status) {
+                var image = $('.image-input').val() || '';
+                if(!/http|https/.test(image)) {
+                    image = '';
+                }
                 var params = {
                     title: $('.title-input').val(),
                     author: '',
                     time: $('.date-input').val(),
-                    image: $('.image-input').val(),
+                    image: image,
+                    description: $('.description-input').val(),
                     content: testEditor.getHTML(),
                     markdown: testEditor.getMarkdown(),
                     status: status,

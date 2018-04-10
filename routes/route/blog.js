@@ -10,11 +10,14 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/post/:postId', checkLogin, function(req, res, next) {
+router.get('/post/:postId', function(req, res, next) {
     let { postId } = req.params;
     Posts.getById(postId, (err, data) => {
         if (err) {
-            return res.status == 404;
+            return res.render('error.ejs', {
+                pageModel: 'error',
+                message: err,
+            });
         }
         return res.render('postDetail.ejs', {
             pageModel: 'postDetail',

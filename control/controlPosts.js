@@ -38,8 +38,9 @@ Posts.getList = (where, callback, opts) => {
     Posts.findAndCountAll(where, (err, data) => {
         if (err) return callback(err);
         data.data.forEach(function(item) {
-            item.content = (item.content || '').slice(0, 600);
-            item.markdown = (item.markdown || '').slice(0, 600);
+            delete item.content;
+            delete item.markdown;
+            item.description = item.description ? item.description  : (item.markdown || '').slice(0, 600);
             item.createdAt = util.formatFullTimeZone(item.createdAt);
             item.updatedAt = util.formatFullTimeZone(item.updatedAt);
         });

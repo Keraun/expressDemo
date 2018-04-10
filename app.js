@@ -13,7 +13,7 @@ var mysqlStore = require('connect-mysql')(session);
 
 require('./lib/database').initDb(); //加载Sequelize
 
-require('./lib/database').createTables({ force: false}); //删除并重建表 { force: true, match: /_test$/ } //匹配对应的model
+require('./lib/database').createTables({ force: false }); //删除并重建表 { force: true, match: /_test$/ } //匹配对应的model
 
 var app = express();
 
@@ -100,9 +100,10 @@ app.use(function(rst, req, res, next) {
 app.use(function(err, req, res, next) {
     if (err) {
         console.log('originalUrl:', req.originalUrl);
-        if (err.status !== 404) {
-            console.error(err);
-        }
+        return res.render('error.ejs', {
+            pageModel: 'error',
+            message: err,
+        });
     }
     res.status(200);
     res.send(err);

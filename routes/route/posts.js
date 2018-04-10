@@ -27,9 +27,9 @@ router.get('/editPost', checkLogin, function(req, res, next) {
 });
 
 router.post('/createPost', checkLogin, function(req, res, next) {
-    let { content, markdown, author, title, time, status, image } = req.body;
+    let { content, markdown, author, title, time, status, image,description } = req.body;
     let { name } = author || req.session.user;
-    let params = { content, markdown, author: name, title, time, status, image };
+    let params = { content, markdown, author: name, title, time, status, image,description };
     if (time) {
         params.createdAt = time;
     }
@@ -100,7 +100,7 @@ router.get('/getPostById', function(req, res, next) {
 });
 
 router.post('/updatePostById', checkLogin, function(req, res, next) {
-    let { postId, content, markdown, author, title, time, status, image } = req.body;
+    let { postId, content, markdown, author, title, time, status, image,description } = req.body;
     if (!postId) {
         return res.send({ result: 100, data: {}, message: 'postId不能为空' });
     }
@@ -125,6 +125,9 @@ router.post('/updatePostById', checkLogin, function(req, res, next) {
     }
     if (status) {
         params.status = status;
+    }
+    if (description) {
+        params.description = description;
     }
 
     Posts.update(params, (err, data) => {

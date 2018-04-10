@@ -102,7 +102,7 @@
                     '<tr data-postid="' + item.postId + '">',
                     '<td class="al-c">' + item.postId + '</td>',
                     '<td>' + item.title + '</td>',
-                    '<td><div class="post-content">' + item.markdown.slice(0, 100) + '</div></td>',
+                    '<td><div class="post-content">' + item.description.slice(0, 100) + '</div></td>',
                     '<td>' + (status[item.status] || '') + '</td>',
                     '<td>' + (item.time || item.createdAt).split(' ')[0] + '</td>',
                     '<td>' + item.updatedAt.split(' ')[0] + '</td>',

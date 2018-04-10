@@ -1,5 +1,9 @@
 <%- include('layout') %>
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
-<%- include('footer') %>
+    <%- include('header') %>
+        <%- include('banner') %>
+        <div class="common-wrap" style="padding-top:110px;min-height:400px;">
+            <pre><%= message %></pre>
+        </div>
+
+            <%- include('footer') %>
+                <%- include('layout-end') %>

@@ -111,6 +111,7 @@ a {
 body,
 html {
   height: 100%;
+  width: 100%;
 }
 body {
   overflow-x: auto;
@@ -143,9 +144,9 @@ body {
   clear: both;
   visibility: hidden;
 }
-a {
-  -webkit-tap-highlight-color: transparent;
-}
+/** {
+    -webkit-tap-highlight-color: transparent;
+}*/
 @font-face {
   font-family: 'icomoon';
   src: url('/fonts/icomoon.eot?');
@@ -434,8 +435,11 @@ a {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
 }
-body {
+html {
   background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .site-root {
   min-height: 100%;
@@ -449,15 +453,16 @@ body {
 }
 .site-nav-item {
   /*    height: 100%;*/
+  font: normal normal normal 12px/1.4em futura-lt-w01-book, sans-serif;
   width: 152px;
-  height: 47px;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: visible;
+  height: 47px;
+  line-height: 47px;
   display: inline-block;
   cursor: pointer;
-  font: normal normal normal 12px/1.4em futura-lt-w01-book, sans-serif;
 }
 .site-nav-link {
   display: inline-block;
@@ -482,7 +487,6 @@ body {
 }
 .site-nav-label {
   text-align: center;
-  line-height: 47px;
   height: 100%;
 }
 .banner-image {
@@ -599,10 +603,6 @@ body {
 .post-container .post-main {
   margin-top: 30px;
 }
-.post-nav {
-  width: 940px;
-  margin: 0 auto;
-}
 .post-nav-item {
   height: 80px;
   white-space: nowrap;
@@ -649,6 +649,9 @@ body {
   font-size: 14px;
   line-height: 1.5;
   font-family: futura-lt-w01-light, serif, sans-serif;
+  word-wrap: break-word;
+  text-align: start;
+  pointer-events: none;
 }
 .post-item .post-item-time {
   padding-bottom: 10px;
@@ -738,6 +741,120 @@ body {
   min-height: 100%;
   position: relative;
   margin: 0px auto;
+}
+.platform-mobile .common-wrap {
+  width: 640px;
+}
+.platform-mobile .site-nav-item {
+  height: 94px;
+  font-size: 30px;
+  line-height: 94px;
+}
+.platform-mobile .button-label {
+  padding: 0 15px;
+}
+.platform-mobile .site-description {
+  height: 160px;
+  padding-top: 50px;
+}
+.platform-mobile .post-list-wrap {
+  width: 640px;
+  margin: 0 auto;
+}
+.platform-mobile .post-item-image {
+  width: 100%;
+  height: 150px;
+}
+.platform-mobile .post-item-info {
+  width: 100%;
+  padding: 20px 24px 18px;
+  min-height: 150px;
+  max-height: 220px;
+}
+.platform-mobile .view-more-post {
+  padding-top: 15px;
+}
+.platform-mobile .post-item-description {
+  -webkit-line-clamp: 3;
+  font-size: 25px;
+  padding-top: 10px;
+}
+.platform-mobile .site-footer {
+  margin-top: 48px;
+  display: none;
+}
+.platform-mobile .post-item-time {
+  display: none;
+}
+.platform-mobile .fontStyle-1 {
+  font-size: 44px;
+}
+.platform-mobile .fontStyle-2 {
+  font-size: 20px;
+}
+.platform-mobile .fontStyle-5 {
+  font-size: 40px;
+}
+.platform-mobile .post-title__text {
+  font-size: 40px;
+}
+.platform-mobile .post-item-opt {
+  display: none;
+}
+.platform-mobile .blog-button {
+  font-size: 28px;
+  height: 72px;
+  line-height: 72px;
+}
+.platform-mobile .button-big {
+  width: 400px;
+  height: 80px;
+  line-height: 80px;
+}
+.platform-mobile .avator-box {
+  float: none;
+  display: block;
+  margin: 0;
+  border-width: 0;
+  text-align: center;
+}
+.platform-mobile .avator-img {
+  display: inline-block;
+}
+.platform-mobile .post-container,
+.platform-mobile .blog-container {
+  padding-top: 180px;
+}
+.platform-mobile .post-wrap {
+  width: 650px;
+  padding: 20px 5px 27px;
+}
+.platform-mobile .post-nav-item {
+  font-size: 28px;
+}
+.platform-mobile .post-content {
+  width: 630px;
+}
+.platform-mobile .markdown-body {
+  font-size: 32px;
+}
+.platform-mobile .markdown-body h1 {
+  font-size: 30px;
+}
+.platform-mobile .markdown-body h2 {
+  font-size: 35px;
+}
+.platform-mobile .markdown-body h3 {
+  font-size: 28px;
+}
+.platform-mobile .markdown-body h4 {
+  font-size: 24px;
+}
+.platform-mobile .markdown-body h5 {
+  font-size: 20px;
+}
+.platform-mobile .markdown-body h6 {
+  font-size: 18px;
 }
 /*! github-markdown-css | The MIT License (MIT) | Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com) | https://github.com/sindresorhus/github-markdown-css */
 @font-face {
