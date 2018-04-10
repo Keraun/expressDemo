@@ -1,15 +1,15 @@
 <div class="site-banner">
-    <div class="site-description">
+    <div class="site-description   <%if(pageModel == 'home'){%> no-description-image <%}%>">
         <div class="site-description__BgColor"></div>
         <div class="site-description-container common-wrap">
             <h1 class="fontStyle-1">
-                <span style="letter-spacing:0.45em;">
+                <span class="banner-title fadeInUp animated" style="letter-spacing:0.45em;">
                     一个比&nbsp;<span style="font-family:futura-lt-w01-light,sans-serif;">普通人还普通的</span> 普通人
                 </span>
             </h1>
         </div>
     </div>
     <%if(pageModel == 'home'){%>
-        <image class="banner-image block" src="https://static.wixstatic.com/media/baac51_d623fe1790ed419a89d20aa05f6064b2.jpg/v1/fill/w_1667,h_650,al_c,q_85/baac51_d623fe1790ed419a89d20aa05f6064b2.webp" />
+        <image class="banner-image block" src="/image/banner-green.webp" />
     <%}%>
 </div>

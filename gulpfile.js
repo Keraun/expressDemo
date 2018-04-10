@@ -14,7 +14,7 @@ gulp.task('default', ['clean'], function() {
     return gulp.src([
             './public/less/bundle.less',
             './public/less/reset.less',
-            './public/less/editReset.less'
+            './public/less/editReset.less',
         ])
         .pipe(less())
         .pipe(autoprefixer('last 2 version'))

@@ -11,13 +11,15 @@
         margin: 0 auto;
     }
 
-    .title-input {
+    .title-input, .image-input  {
         height: 60px;
         width: 500px;
         margin: 30px 0;
         display: inline-block;
     }
-
+    .image-input  {
+        width: 100%;
+    }
     .date-input {
         height: 60px;
         width: 150px;
@@ -43,6 +45,7 @@
         <input type="date" class="date-input " name="title" value="" placeholder="时间" />
         <a href="javascript:;" class="btn-save" data-type="1">发布</a>
         <a href="javascript:;" class="btn-save" data-type="2">草稿</a>
+        <input type="text" class="image-input"  name="title" value="" placeholder="图片" />
     </div>
     <div id="layout">
         <div id="test-editormd">
@@ -122,6 +125,7 @@
                     this.getPostById(postId, function(data) {
                         self.initEditor(data.markdown);
                         $('.title-input').val(data.title);
+                        $('.image-input').val(data.image);
                         $('.date-input').val(data.time || data.createdAt.split(' ')[0]);
                     });
                 } else {
@@ -172,6 +176,7 @@
                     title: $('.title-input').val(),
                     author: '',
                     time: $('.date-input').val(),
+                    image: $('.image-input').val(),
                     content: testEditor.getHTML(),
                     markdown: testEditor.getMarkdown(),
                     status: status,

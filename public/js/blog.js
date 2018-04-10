@@ -8,26 +8,13 @@
         $pageOpt: $('.blog-page-opt'),
     }
 
-    function GetRequest() {
-        var url = location.search; //获取url中"?"符后的字串
-        var theRequest = new Object();
-        if (url.indexOf("?") != -1) {
-            var str = url.substr(1);
-            strs = str.split("&");
-            for (var i = 0; i < strs.length; i++) {
-                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-            }
-        }
-        return theRequest;
-    }
-
-    var query = GetRequest();
+    var query = window.GetRequest();
 
 
     var oPage = {
 
         pageNo: query.pageNo || 1,
-        pageSize: query.pageSize || 1,
+        pageSize: query.pageSize || 10,
         pageTotal: 1,
         total: 1,
 
@@ -71,13 +58,19 @@
             var html = '';
             list.forEach(function(item, idx) {
                 var bOldNum = (idx % 2 == 0 ? true : false);
+
+                var imgName = item.image;
+                if(!imgName) {
+                    imgName = '/image/item-book' + (idx % 2 ) +'.webp';
+                }
+                var itemImg = 'background-image:url(\'' + imgName + '\');';
                 html += [
                     '<article class="post-item clearfix">',
-                    '<div class="post-item-image" style="' + (!bOldNum ? 'float:right; ' : '') + '"></div>',
+                    '<div class="post-item-image" style="'+ itemImg+ '' + (!bOldNum ? 'float:right; ' : '') + '"></div>',
                     '<div class="post-item-info">',
                     '<div class="post-item_text post-item-time">' + (item.time || item.createdAt || '').split(' ')[0] + '</div>',
                     '<div>',
-                    '<h2><a class="post-item-title post-title__text" href="/blog/post/6">' + item.title + '</a></h2>',
+                    '<h2><a class="post-item-title post-title__text transition" href="/blog/post/6">' + item.title + '</a></h2>',
                     '</div>',
                     '<div class="post-item_text post-item-description">',
                     item.markdown,

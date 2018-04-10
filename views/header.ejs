@@ -5,17 +5,17 @@
                     <ul class="site-nav-container">
                         <li class="site-nav-item">
                             <a class="site-nav-link" href="/" title="">
-                                <p class="button-label button-label__selected site-nav-label">主页</p>
+                                <p class="button-label <%if(pageModel == 'home') {%>button-label__selected <%}%> site-nav-label transition">主页</p>
                             </a>
                         </li>
                         <li class="site-nav-item">
                             <a class="site-nav-link" href="/blog" title="">
-                                <p class="button-label site-nav-label">博客</p>
+                                <p class="button-label <%if(pageModel == 'blog') {%>button-label__selected <%}%> site-nav-label transition">博客</p>
                             </a>
                         </li>
                         <li class="site-nav-item">
                             <a class="site-nav-link" href="/about" title="">
-                                <p class="button-label site-nav-label">关于</p>
+                                <p class="button-label <%if(pageModel == 'about') {%>button-label__selected <%}%> site-nav-label transition">关于</p>
                             </a>
                         </li>
                     </ul>

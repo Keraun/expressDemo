@@ -290,6 +290,11 @@ a {
 .icon-uniE612:before {
   content: "\e612";
 }
+@font-face {
+  font-family: "Futura-LT-W01-Light";
+  src: url("/fonts/futura-lt-w01-light.eot?#iefix");
+  src: url("/fonts/futura-lt-w01-light.eot?#iefix") format("eot"), url("/fonts/futura-lt-w01-light.woff2") format("woff2"), url("/fonts/futura-lt-w01-light.woff") format("woff"), url("/fonts/futura-lt-w01-light.ttf") format("truetype"), url("/fonts/futura-lt-w01-light.svg#14d6bf5d-15f1-4794-b18e-c03fb9a5187e") format("svg");
+}
 .icon {
   font-size: 20px;
   color: #fff;
@@ -345,6 +350,90 @@ a {
   text-align: start;
   pointer-events: none;
 }
+.transition {
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+}
 body {
   background: #fff;
 }
@@ -375,6 +464,12 @@ body {
   height: 100%;
   width: 100%;
 }
+.site-nav-link:hover .button-label {
+  color: #605E5E;
+}
+.banner-title {
+  opacity: 0;
+}
 .button-label {
   display: inline-block;
   padding: 0 10px;
@@ -384,8 +479,6 @@ body {
 }
 .button-label__selected {
   color: #605E5E;
-  -webkit-transition: color 0.4s ease 0s;
-  transition: color 0.4s ease 0s;
 }
 .site-nav-label {
   text-align: center;
@@ -395,9 +488,14 @@ body {
 .banner-image {
   width: 100%;
   min-height: 300px;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 .site-banner {
   position: relative;
+}
+.site-banner .no-description-image {
+  background: none;
 }
 .site-description {
   position: absolute;
@@ -407,8 +505,7 @@ body {
   height: 94px;
   padding-top: 30px;
   background: url('/image/bannerBg.webp') no-repeat;
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  z-index: 10;
 }
 .site-description-container {
   text-align: center;
@@ -530,6 +627,10 @@ body {
 .blog-container .post-list {
   min-height: 150px;
 }
+.post-list {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
 .post-list .post-item {
   font-size: 0;
   line-height: normal;
@@ -545,12 +646,13 @@ body {
   color: #2f2e2e;
 }
 .post-item .post-item_text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
-  font-family: serif, sans-serif;
+  font-family: futura-lt-w01-light, serif, sans-serif;
 }
 .post-item .post-item-time {
   padding-bottom: 10px;
+  font-family: futura-lt-w01-light, serif, sans-serif;
 }
 .post-item .post-item-title:hover {
   color: #CCCCCC;
@@ -647,7 +749,7 @@ body {
   -webkit-text-size-adjust: 100%;
   color: #333;
   overflow: hidden;
-  font-family: "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", "Monaco", monospace, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: futura-lt-w01-light, "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", "Monaco", monospace, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;

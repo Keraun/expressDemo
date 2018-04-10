@@ -38,8 +38,16 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
+    &:hover {
+        .button-label {
+            color: #605E5E;
+        }
+    };
 }
 
+.banner-title  {
+    opacity: 0;
+}
 .button-label {
     display: inline-block;
     padding: 0 10px;
@@ -49,7 +57,6 @@ body {
 
 .button-label__selected {
     color: #605E5E;
-    transition: color 0.4s ease 0s;
 }
 
 .site-nav-label {
@@ -61,10 +68,14 @@ body {
 .banner-image {
     width: 100%;
     min-height: 300px;
+    transform: translate(0,0);
 }
 
 .site-banner {
     position: relative;
+    .no-description-image {
+        background: none;
+    }
 }
 
 .site-description {
@@ -75,7 +86,7 @@ body {
     height: 94px;
     padding-top: 30px;
     background: url('/image/bannerBg.webp') no-repeat;
-    transform: translate(0, 0);
+    z-index: 10;
 }
 
 .site-description-container {
@@ -237,6 +248,7 @@ body {
 }
 
 .post-list {
+    transform: translate(0,0);
     .post-item {
         font-size: 0;
         line-height: normal;
@@ -255,13 +267,14 @@ body {
         color: rgba(47, 46, 46, 1);
     }
     .post-item_text {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.5;
-        font-family: serif, sans-serif;
+        font-family: futura-lt-w01-light, serif, sans-serif;
     }
 
     .post-item-time {
         padding-bottom: 10px;
+        font-family: futura-lt-w01-light, serif, sans-serif;
     }
 
     .post-item-title:hover {

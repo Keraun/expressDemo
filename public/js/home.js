@@ -37,13 +37,18 @@
             var html = '';
             list.forEach(function(item, idx) {
                 var bOldNum = (idx % 2 == 0 ? true : false);
+                var imgName = item.image;
+                if(!imgName) {
+                    imgName = '/image/item-book' + (idx % 2 ) +'.webp';
+                }
+                var itemImg = 'background-image:url(\'' + imgName + '\');';
                 html += [
                     '<article class="post-item clearfix">',
-                    '<div class="post-item-image" style="' + (!bOldNum ? 'float:right; ' : '') + '"></div>',
+                    '<div class="post-item-image" style="'+ itemImg +'' + (!bOldNum ? 'float:right; ' : '') + '"></div>',
                     '<div class="post-item-info">',
                     '<div class="post-item_text post-item-time">' + (item.time || item.createdAt || '').split(' ')[0] + '</div>',
                     '<div>',
-                    '<h2><a class="post-item-title post-title__text" href="/blog/post/6">' + item.title + '</a></h2>',
+                    '<h2><a class="post-item-title post-title__text transition" href="/blog/post/6">' + item.title + '</a></h2>',
                     '</div>',
                     '<div class="post-item_text post-item-description">',
                     item.markdown,
