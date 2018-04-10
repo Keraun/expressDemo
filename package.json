@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "pm2-start": "NODE_ENV=production pm2 start app.js --name 'myblog'",
     "hot-start": "supervisor --harmony --inspect ./bin/www"
   },
   "dependencies": {
