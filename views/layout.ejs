@@ -5,7 +5,12 @@
     <title>积叶草堂 | Keraun的小窝</title>
     <%- include('meta') %>
         <script type="text/javascript">
+
         (function(window, document) {
+            var isMobile = false;
+            if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+                isMobile = true;
+            }
             var hotcss = {};
             (function() {
                 var viewportEl = document.querySelector('meta[name="viewport"]'),
@@ -38,7 +43,7 @@
                 var html = document.documentElement;
                 html.style.fontSize = (innerWidth * 20 / 320) + "px";
                 console.log('innerWidth', innerWidth);
-                if (innerWidth < 980) {
+                if (innerWidth < 980 || isMobile) {
                     html.className = 'platform-mobile';
                 } else {
                     html.className = 'platform-pc';
