@@ -667,6 +667,7 @@ html {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   padding-top: 20px;
+  word-break: break-all;
 }
 .post-item .post-item-image {
   display: block;
