@@ -857,6 +857,9 @@ html {
 .platform-mobile .markdown-body h6 {
   font-size: 18px;
 }
+.platform-mobile .post-item-title {
+  font-size: 35px;
+}
 /*! github-markdown-css | The MIT License (MIT) | Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com) | https://github.com/sindresorhus/github-markdown-css */
 @font-face {
   font-family: octicons-anchor;
