@@ -859,6 +859,10 @@ html {
 }
 .platform-mobile .post-item-title {
   font-size: 35px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /*! github-markdown-css | The MIT License (MIT) | Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com) | https://github.com/sindresorhus/github-markdown-css */
 @font-face {
