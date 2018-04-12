@@ -43,8 +43,9 @@
                 var html = document.documentElement;
                 html.style.fontSize = (innerWidth * 20 / 320) + "px";
                 console.log('innerWidth', innerWidth);
-                if (innerWidth < 980 || isMobile) {
+                if (isMobile) {
                     html.className = 'platform-mobile';
+                    location.href="http://iwuly.com";
                 } else {
                     html.className = 'platform-pc';
                 }
